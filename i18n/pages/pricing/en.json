@@ -1,0 +1,211 @@
+{
+  "pricing": {
+    "title": "Simple credit pricing",
+    "subtitle": "Credits are usage units consumed per task, not a form of currency.",
+    "disclaimer": "z-image.ai uses open-source AI models (Apache-2.0) deployed and optimized on our own infrastructure. We are not affiliated with any model provider.",
+    "items": [
+      {
+        "id": "starter-yearly",
+        "title": "Starter Yearly",
+        "description": "Kick off projects with a light, flexible credit pack.",
+        "price": "9.9",
+        "original_price": "179",
+        "unit": "month",
+        "interval": "year",
+        "credits": 22680,
+        "group": "yearly",
+        "features": [
+          "22680 flexible credits/year for all features on z-image.ai",
+          "≈11340 z-image gen (2 credits each)",
+          "≈2835 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Perfect for beginners exploring the core features of z-image.ai."
+        ],
+        "button_text": "Buy credits"
+      },
+      {
+        "id": "professional-yearly",
+        "title": "Professional Yearly",
+        "description": "Massive volume for studios and power users.",
+        "price": "19.9",
+        "original_price": "80",
+        "unit": "month",
+        "interval": "year",
+        "credits": 50400,
+        "bonus_percentage": 40,
+        "group": "yearly",
+        "is_featured": true,
+        "badge": "Pro spotlight",
+        "badge_icon": "⭐️ Most Popular",
+        "limited_time_bonus": true,
+        "features": [
+          "50400 credits/year with a 40% bonus included",
+          "≈25200 z-image gen (2 credits each)",
+          "≈6300 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Priority processing for faster task completion",
+          "Run multiple tasks at once",
+          "Perfect for professionals, creators, studios, and AI content power users"
+        ],
+        "button_text": "Buy credits"
+      },
+      {
+        "id": "titan-yearly",
+        "title": "Titan Yearly",
+        "description": "Our best-value pack for high-volume creators — includes Priority Queue & enhanced throughput.",
+        "price": "59.8",
+        "original_price": "199",
+        "unit": "month",
+        "interval": "year",
+        "credits": 180000,
+        "bonus_percentage": 50,
+        "group": "yearly",
+        "features": [
+          "180000 credits/year with a massive 50% bonus included",
+          "≈90000 z-image gen (2 credits each)",
+          "≈22500 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Priority processing for all tasks",
+          "Run more tasks in parallel for boosted productivity",
+          "Perfect for professionals, creators, studios, and AI content power users , Enterprise Use"
+        ],
+        "button_text": "Buy credits"
+      },
+      {
+        "id": "starter-monthly",
+        "title": "Starter Monthly",
+        "description": "Flexible monthly credits for casual users.",
+        "price": "15.9",
+        "original_price": "20",
+        "unit": "month",
+        "interval": "month",
+        "credits": 2000,
+        "group": "monthly",
+        "features": [
+          "2000 flexible credits/month for all features on z-image.ai",
+          "≈1000 z-image gen (2 credits each)",
+          "≈250 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Cancel anytime, no commitment",
+          "Perfect for testing and occasional use"
+        ],
+        "button_text": "Buy credits"
+      },
+      {
+        "id": "professional-monthly",
+        "title": "Professional Monthly",
+        "description": "For regular users who need consistent access.",
+        "price": "29.9",
+        "original_price": "40",
+        "unit": "month",
+        "interval": "month",
+        "credits": 5000,
+        "bonus_percentage": 25,
+        "group": "monthly",
+        "is_featured": true,
+        "badge": "Popular choice",
+        "badge_icon": "⭐️ Best for monthly",
+        "features": [
+          "5000 credits/month with a 25% bonus included",
+          "≈2500 z-image gen (2 credits each)",
+          "≈625 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Priority processing for faster task completion",
+          "Run multiple tasks at once",
+          "Cancel anytime, no long-term commitment"
+        ],
+        "button_text": "Buy credits"
+      },
+      {
+        "id": "titan-monthly",
+        "title": "Titan Monthly",
+        "description": "Maximum flexibility with enterprise-level credits.",
+        "price": "89.9",
+        "original_price": "120",
+        "unit": "month",
+        "interval": "month",
+        "credits": 18000,
+        "bonus_percentage": 50,
+        "group": "monthly",
+        "features": [
+          "18000 credits/month with a 50% bonus included",
+          "≈9000 z-image gen (2 credits each)",
+          "≈2250 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Priority processing for all tasks",
+          "Run more tasks in parallel for boosted productivity",
+          "Cancel anytime, full flexibility"
+        ],
+        "button_text": "Buy credits"
+      },
+      {
+        "id": "starter-onetime",
+        "title": "Starter Pack",
+        "description": "One-time credit purchase for quick projects.",
+        "price": "19.9",
+        "original_price": "25",
+        "unit": "one-time",
+        "interval": "one-time",
+        "credits": 1500,
+        "group": "one-time",
+        "features": [
+          "1500 credits one-time purchase",
+          "≈750 z-image gen (2 credits each)",
+          "≈187 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Credits never expire",
+          "Perfect for one-off projects"
+        ],
+        "button_text": "Buy credits"
+      },
+      {
+        "id": "professional-onetime",
+        "title": "Professional Pack",
+        "description": "Large one-time credit pack for major projects.",
+        "price": "49.9",
+        "original_price": "70",
+        "unit": "one-time",
+        "interval": "one-time",
+        "credits": 5000,
+        "bonus_percentage": 20,
+        "group": "one-time",
+        "is_featured": true,
+        "badge": "Best value",
+        "badge_icon": "⭐️ Most popular",
+        "features": [
+          "5000 credits with a 20% bonus included",
+          "≈2500 z-image gen (2 credits each)",
+          "≈625 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Credits never expire",
+          "Priority processing",
+          "Perfect for medium to large projects"
+        ],
+        "button_text": "Buy credits"
+      },
+      {
+        "id": "titan-onetime",
+        "title": "Titan Pack",
+        "description": "Ultimate one-time credit pack for enterprise needs.",
+        "price": "149.9",
+        "original_price": "220",
+        "unit": "one-time",
+        "interval": "one-time",
+        "credits": 20000,
+        "bonus_percentage": 35,
+        "group": "one-time",
+        "features": [
+          "20000 credits with a 35% bonus included",
+          "≈10000 z-image gen (2 credits each)",
+          "≈2500 seconds LTX-2 video (8 credits per second)",
+          "≈Use All 25 Models listed on our site",
+          "Credits never expire",
+          "Priority processing for all tasks",
+          "Run more tasks in parallel",
+          "Perfect for enterprise and large-scale projects"
+        ],
+        "button_text": "Buy credits"
+      }
+    ]
+  }
+}
