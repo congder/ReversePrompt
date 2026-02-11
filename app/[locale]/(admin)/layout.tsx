@@ -22,10 +22,10 @@ export default async function AdminLayout({
 
   const sidebar: Sidebar = {
     brand: {
-      title: "Digital Human",
+      title: "LuminaX",
       logo: {
-        src: "/logo.jpg",
-        alt: "Digital Human",
+        src: "/logo.png",
+        alt: "LuminaX",
       },
       url: "/admin",
     },

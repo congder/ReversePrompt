@@ -3,10 +3,10 @@
   "theme": "light",
   "header": {
     "brand": {
-      "title": "Pixmind",
+      "title": "LuminaX",
       "logo": {
         "src": "/logo.png",
-        "alt": "Pixmind"
+        "alt": "LuminaX"
       },
       "url": "/"
     },
@@ -64,12 +64,8 @@
               "icon": "RiFileReduceLine"
             }
           ]
-        },
-        {
-          "title": "定价",
-          "url": "/pricing",
-          "icon": "RiMoneyDollarCircleLine"
         }
+        
       ]
     },
     "buttons": [
@@ -89,7 +85,7 @@
       "title_free": "免费",
       "title_main": "与AI并肩创作,让灵感照进现实。",
       "title_generator": "生成器",
-      "subtitle": "从创意到作品,PixMind 点燃你的创作激情。",
+      "subtitle": "从创意到作品,LuminaX 点燃你的创作激情。",
       "description": "即时将任何图像转换为详细提示词。完美支持 Midjourney、DALL-E、Stable Diffusion 等。",
       "try_now": "立即试用！",
       "tutorials": "教程"
@@ -165,15 +161,15 @@
   "footer": {
     "name": "footer",
     "brand": {
-      "title": "Pixmind",
+      "title": "LuminaX",
       "description": "使用我们的 AI 驱动的提示词生成工具，将您的创意愿景变为现实。将图片转换为提示词，增强文本提示词，并生成惊艳的视觉效果。",
       "logo": {
         "src": "/logo.png",
-        "alt": "Pixmind"
+        "alt": "LuminaX"
       },
       "url": "/"
     },
-    "copyright": "© 2025 • Pixmind 保留所有权利。  pixmind.service@aimix.pro",
+    "copyright": "© 2025 • LuminaX 保留所有权利。",
     "nav": {
       "items": [
         {

@@ -3,10 +3,10 @@
   "theme": "light",
   "header": {
     "brand": {
-      "title": "Pixmind",
+      "title": "LuminaX",
       "logo": {
         "src": "/logo.png",
-        "alt": "Pixmind"
+        "alt": "LuminaX"
       },
       "url": "/"
     },
@@ -64,12 +64,8 @@
               "icon": "RiFileReduceLine"
             }
           ]
-        },
-        {
-          "title": "Pricing",
-          "url": "/pricing",
-          "icon": "RiMoneyDollarCircleLine"
         }
+       
       ]
     },
     "buttons": [
@@ -89,7 +85,7 @@
       "title_free": "Free",
       "title_main": "Work side by side with AI to turn ideas into reality.",
       "title_generator": "Generator",
-      "subtitle": "From concept to creation, PixMind fuels your creative fire.",
+      "subtitle": "From concept to creation, LuminaX fuels your creative fire.",
       "description": "Convert any image to detailed prompts instantly. Perfect for Midjourney, DALL-E, Stable Diffusion and more.",
       "try_now": "Try it now!",
       "tutorials": "Tutorials"
@@ -165,15 +161,15 @@
   "footer": {
     "name": "footer",
     "brand": {
-      "title": "Pixmind",
+      "title": "LuminaX",
       "description": "Transform your creative vision into reality with our AI-powered prompt generation tools. Convert images to prompts, enhance text prompts, and generate stunning visuals.",
       "logo": {
         "src": "/logo.png",
-        "alt": "Pixmind"
+        "alt": "LuminaX"
       },
       "url": "/"
     },
-    "copyright": "© 2025 • Pixmind. All rights reserved.  pixmind.service@aimix.pro",
+    "copyright": "© 2025 • LuminaX. All rights reserved.",
     "nav": {
       "items": [
         {
