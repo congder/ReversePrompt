@@ -53,8 +53,6 @@ function GoogleAuthHandler() {
     const authToken = searchParams.get('auth_token');
     if (authToken) {
       sessionStorage.setItem('auth_token', authToken);
-      // 触发重新渲染
-      authEventBus.emit('authStateChange');
     }
 
     // 处理登录成功后的重定向
