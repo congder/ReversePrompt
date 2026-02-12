@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import Link from "@/i18n/routing";
+import { Link } from "@/i18n/routing";
 
 export default function VideoTestPage() {
   const t = useTranslations('ai_video');
