@@ -504,7 +504,7 @@
     "placeholder": "在这里留下您的反馈..."
   },
   "ai_image": {
-    "menu_title": "AI Image",
+    "menu_title": "AI图像",
     "txt_to_image": {
       "title": "文本转图像",
       "description": "通过文本描述生成AI图片"
@@ -707,6 +707,17 @@
     "default": {
       "title": "AI Video Generator",
       "subtitle": "Transform your text or images into stunning videos with AI"
+    },
+    "evolinkTest": {
+      "title": "Evolink API 测试",
+      "description": "测试与 Evolink AI API 的连接",
+      "instructions": "点击下面的按钮测试 Evolink API 连接。这将验证您的 API 密钥并检查服务是否正常工作。",
+      "runTest": "运行测试",
+      "testing": "测试中...",
+      "testSuccess": "测试成功！API 连接正常工作。",
+      "testFailed": "测试失败。请查看下方的错误信息。",
+      "errorTitle": "错误详情",
+      "successTitle": "成功详情"
     },
     "veo": {
       "title": "Google Veo 3.1",
@@ -1294,6 +1305,57 @@
     "pricing_desc": "订阅用户根据其层级获得免费的API测试调用。请联系我们获取详细的定价信息。",
     "documentation_desc": "完整的API文档、端点、身份验证详细信息、速率限制和代码示例将提供给批准的测试参与者。",
     "footer_note": "完整的API文档、端点、身份验证详细信息、速率限制和代码示例将提供给批准的测试参与者。"
+  },
+  "ai_video": {
+    "title": "AI 视频生成",
+    "subtitle": "使用AI从文本或图像创建视频",
+    "model": "模型：{{name}}",
+    "tabs": {
+      "textToVideo": "文本生成视频",
+      "imageToVideo": "图片转视频"
+    },
+    "form": {
+      "prompt": "视频描述",
+      "promptPlaceholder": "描述您想要创建的视频...",
+      "imageUpload": "上传参考图片",
+      "advancedParameters": "高级参数",
+      "duration": "时长",
+      "size": "分辨率",
+      "quality": "质量",
+      "style": "风格"
+    },
+    "upload": {
+      "success": "成功上传 {{count}} 张图片",
+      "error": "图片上传失败"
+    },
+    "validation": {
+      "emptyPrompt": "请输入提示词"
+    },
+    "generate": "生成视频",
+    "generating": "生成中...",
+    "generation": {
+      "generate": "生成视频",
+      "generating": "生成中...",
+      "success": "视频生成成功！",
+      "error": "视频生成失败",
+      "timeout": "生成超时，请重试"
+    },
+    "task": {
+      "status": "任务状态",
+      "progress": "进度",
+      "taskId": "任务ID"
+    },
+    "results": {
+      "title": "生成的视频",
+      "video": "视频",
+      "download": "下载",
+      "empty": "尚未生成视频。开始生成后结果将显示在这里。"
+    },
+    "reset": "重置",
+    "auth": {
+      "redirecting": "正在跳转...",
+      "pleaseWait": "请稍候..."
+    }
   },
   "imageToImage": {
     "title_ai": "AI ",

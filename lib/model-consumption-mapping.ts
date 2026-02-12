@@ -35,6 +35,11 @@ export function mapImageModelToConsumptionType(modelId: string): string | null {
  * @returns 消耗项类型
  */
 export function mapVideoModelToConsumptionType(modelId: string): string | null {
+  // Nano Banana Video 系列
+  if (modelId.includes('nano-banana-2-video')) {
+    return 'NanoBanana2Video'
+  }
+
   // Veo3 系列
   if (modelId.includes('veo-3') || modelId.includes('veo3')) {
     if (modelId.includes('fast')) {

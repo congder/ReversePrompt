@@ -259,11 +259,12 @@ evolinkAxios.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const fullUrl = `${config.baseURL}${config.url}`;
 
-    // 添加 API Key
+    // 添加 API Key - 确保去除前后空格
     if (EVOLINK_API_KEY) {
-      config.headers['Authorization'] = `Bearer ${EVOLINK_API_KEY}`;
+      const apiKey = EVOLINK_API_KEY.trim();
+      config.headers['Authorization'] = `Bearer ${apiKey}`;
       log(`\n[Evolink Request] ${config.method?.toUpperCase()} ${fullUrl}`);
-      log('Using API Key authentication');
+      log('Using API Key authentication:', apiKey.substring(0, 10) + '...');
     }
 
     // 打印请求数据
@@ -309,5 +310,75 @@ evolinkAxios.interceptors.response.use(
   }
 );
 
-export { axiosInstance, aiHubAxios, evolinkAxios };
+// 创建 Evolink 视频专用的 axios 实例
+const EVOLINK_VIDEO_API_KEY = process.env.EVOLINK_VIDEO_3_1FAST_API_KEY || process.env.EVOLINK_VIDEO_API_KEY || process.env.EVOLINK_API_KEY;
+
+console.log('[Evolink Video Config] API Key configured:', !!EVOLINK_VIDEO_API_KEY);
+
+const evolinkVideoAxios: AxiosInstance = axios.create({
+  baseURL: EVOLINK_API_URL,
+  timeout: 600000, // 600秒（10分钟）超时，视频生成需要更长时间
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Evolink Video 请求拦截器
+evolinkVideoAxios.interceptors.request.use(
+  (config: InternalAxiosRequestConfig) => {
+    const fullUrl = `${config.baseURL}${config.url}`;
+
+    // 添加视频专用的 API Key
+    if (EVOLINK_VIDEO_API_KEY) {
+      config.headers['Authorization'] = `Bearer ${EVOLINK_VIDEO_API_KEY}`;
+      log(`\n[Evolink Video Request] ${config.method?.toUpperCase()} ${fullUrl}`);
+      log('Using Video API Key authentication');
+    } else {
+      logError('[Evolink Video] No video API key found');
+    }
+
+    // 打印请求数据
+    if (config.data) {
+      log('Request data:', config.data);
+    }
+
+    return config;
+  },
+  (error: AxiosError) => {
+    logError('[Evolink Video Request Error]', error.message);
+    return Promise.reject(error);
+  }
+);
+
+// Evolink Video 响应拦截器
+evolinkVideoAxios.interceptors.response.use(
+  (response) => {
+    log(`[Evolink Video Response] ${response.status} ${response.statusText}`);
+    if (response.data) {
+      log('Response data:', response.data);
+    }
+    return response;
+  },
+  (error: AxiosError) => {
+    if (error.response) {
+      logError(`[Evolink Video Response Error] ${error.response.status} ${error.response.statusText}`);
+      logError('Error data:', error.response.data);
+    } else if (error.request) {
+      logError('[Evolink Video Network Error] No response received');
+      logError('Request details:', {
+        url: error.config?.url,
+        baseURL: error.config?.baseURL,
+        method: error.config?.method,
+        timeout: error.config?.timeout,
+        code: error.code,
+        message: error.message
+      });
+    } else {
+      logError('[Evolink Video Error]', error.message);
+    }
+    return Promise.reject(error);
+  }
+);
+
+export { axiosInstance, aiHubAxios, evolinkAxios, evolinkVideoAxios };
 export default axiosInstance;

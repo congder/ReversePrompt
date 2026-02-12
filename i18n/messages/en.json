@@ -521,6 +521,18 @@
       "translate": "Translate",
       "select_ratio": "Select ratio"
     },
+    "menu_title": "AI Video",
+    "txt_to_video": {
+      "title": "Text to Video",
+      "description": "Generate AI videos from text descriptions"
+    },
+    "video_to_video": {
+      "title": "Video to Video",
+      "description": "Generate new AI videos from reference videos",
+      "reference_video": "Reference Video",
+      "reference_video_desc": "Upload a video to use as a reference for generation",
+      "video_upload": "Upload Reference Video"
+    },
     "login_to_get_credits": "Login to get free credits and use more features",
     "generating": "Generating...",
     "generate_image": "Generate Image",
@@ -705,6 +717,17 @@
     "default": {
       "title": "AI Video Generator",
       "subtitle": "Transform your text or images into stunning videos with AI"
+    },
+    "evolinkTest": {
+      "title": "Evolink API Test",
+      "description": "Test the connection to Evolink AI API",
+      "instructions": "Click the button below to test the Evolink API connection. This will verify your API key and check if the service is working correctly.",
+      "runTest": "Run Test",
+      "testing": "Testing...",
+      "testSuccess": "Test successful! API connection is working.",
+      "testFailed": "Test failed. Please check the error message below.",
+      "errorTitle": "Error Details",
+      "successTitle": "Success Details"
     },
     "veo": {
       "title": "Google Veo 3.1",
@@ -1084,6 +1107,60 @@
     "bottom_title": "AI-Powered Prompt Enhancement",
     "bottom_subtitle": "Transform basic ideas into detailed, optimized prompts for AI image generation",
     "bottom_desc": "Transform basic ideas into detailed, optimized prompts for AI image generation"
+  },
+  "ai_video": {
+    "title": "AI Video Generation",
+    "subtitle": "Create videos from text or images with AI",
+    "model": "Model: {name}",
+    "tabs": {
+      "textToVideo": "Text to Video",
+      "imageToVideo": "Image to Video",
+      "videoToVideo": "Video to Video"
+    },
+    "form": {
+      "prompt": "Video Description",
+      "promptPlaceholder": "Describe the video you want to create...",
+      "imageUpload": "Upload Reference Image",
+      "advancedParameters": "Advanced Parameters",
+      "duration": "Duration",
+      "size": "Resolution",
+      "quality": "Quality",
+      "style": "Style",
+      "videoUpload": "Upload Reference Video",      
+    "referenceText": "Prompt / Description"
+    },
+    "upload": {
+      "success": "{{count}} image(s) uploaded successfully",
+      "error": "Image upload failed"
+    },
+    "validation": {
+      "emptyPrompt": "Please enter a prompt"
+    },
+    "generate": "Generate Video",
+    "generating": "Generating...",
+    "generation": {
+      "generate": "Generate Video",
+      "generating": "Generating...",
+      "success": "Video generated successfully!",
+      "error": "Failed to generate video",
+      "timeout": "Generation timeout. Please try again."
+    },
+    "task": {
+      "status": "Task Status",
+      "progress": "Progress",
+      "taskId": "Task ID"
+    },
+    "results": {
+      "title": "Generated Videos",
+      "video": "Video",
+      "download": "Download",
+      "empty": "No videos generated yet. Start generating to see results here."
+    },
+    "reset": "Reset",
+    "auth": {
+      "redirecting": "Redirecting...",
+      "pleaseWait": "Please wait while we redirect you"
+    }
   },
   "videoToPrompt": {
     "title": "Free Video Prompt Generator",

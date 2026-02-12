@@ -1,0 +1,44 @@
+{
+  "title": "AI Video Generation",
+  "subtitle": "Create videos from text or images with AI",
+  "model": "Model: {{name}}",
+  "tabs": {
+    "textToVideo": "Text to Video",
+    "imageToVideo": "Image to Video"
+  },
+  "form": {
+    "prompt": "Video Description",
+    "promptPlaceholder": "Describe the video you want to create...",
+    "videoUpload": "Upload Reference Video",
+    "referenceText": "Reference Text",
+    "referenceTextPlaceholder": "Optional text description for the video transformation...",
+    "advancedParameters": "Advanced Parameters",
+    "duration": "Duration",
+    "size": "Resolution",
+    "quality": "Quality",
+    "style": "Style"
+  },
+  "upload": {
+    "success": "{{count}} video uploaded successfully",
+    "error": "Video upload failed"
+  },
+  "generation": {
+    "generate": "Generate Video",
+    "generating": "Generating...",
+    "success": "Video generated successfully!",
+    "error": "Failed to generate video",
+    "timeout": "Generation timeout. Please try again."
+  },
+  "task": {
+    "status": "Task Status",
+    "progress": "Progress",
+    "taskId": "Task ID"
+  },
+  "results": {
+    "title": "Generated Videos",
+    "video": "Video",
+    "download": "Download",
+    "empty": "No videos generated yet. Start generating to see results here."
+  },
+  "reset": "Reset"
+}

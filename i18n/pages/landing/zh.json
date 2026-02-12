@@ -29,10 +29,16 @@
           "icon": "RiVideoAddLine",
           "children": [
             {
-              "title": "Veo3.0/3.1",
-              "description": "Veo 视频生成模型",
-              "url": "/video-generate/veo",
+              "title": "文本生成视频",
+              "description": "通过文本描述创建视频",
+              "url": "/text-to-video/nano-banana",
               "icon": "RiVideoUploadLine"
+            },
+            {
+              "title": "视频转视频",
+              "description": "转换现有视频",
+              "url": "/text-to-video/nano-banana",
+              "icon": "RiVideoEditLine"
             }
           ]
         },
@@ -145,6 +151,12 @@
         "free_to_use_title": "🆓 免费使用",
         "free_to_use_desc": "完全免费开始使用我们的图像提示词生成器，无需信用卡"
       }
+    },
+    "evolinkTest": {
+      "title": "Evolink API 测试",
+      "description": "测试 Evolink API 与我们平台的集成",
+      "instructions": "点击下面的按钮测试与 Evolink AI 服务的连接。",
+      "runTest": "运行 API 测试"
     },
     "faq": {
       "title": "常见问题",

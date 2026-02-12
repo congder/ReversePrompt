@@ -51,10 +51,16 @@ export async function POST(request: NextRequest) {
   } catch (error: any) {
     logError('[Evolink Generate] 错误:', error);
     const errorData = error.response?.data?.error || {};
+    const errorMessage = errorData.message || error.message || '生成失败';
+    logError('[Evolink Generate] 详细错误信息:', {
+      status: error.response?.status,
+      message: errorMessage,
+      errorData: errorData
+    });
     return NextResponse.json(
       {
         code: error.response?.status || 500,
-        message: errorData.message || error.message || '生成失败',
+        message: errorMessage,
         error: errorData
       },
       { status: error.response?.status || 500 }

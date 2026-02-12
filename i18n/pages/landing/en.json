@@ -29,10 +29,16 @@
           "icon": "RiVideoAddLine",
           "children": [
             {
-              "title": "Veo3.0/3.1",
-              "description": "Veo video generation model",
-              "url": "/video-generate/veo",
+              "title": "Text to Video",
+              "description": "Create videos from text descriptions",
+              "url": "/text-to-video/nano-banana",
               "icon": "RiVideoUploadLine"
+            },
+            {
+              "title": "Video to Video",
+              "description": "Transform existing videos",
+              "url": "/text-to-video/nano-banana",
+              "icon": "RiVideoEditLine"
             }
           ]
         },
@@ -145,6 +151,12 @@
         "free_to_use_title": "🆓 Free to Use",
         "free_to_use_desc": "Start using our image prompt generator completely free, no credit card required"
       }
+    },
+    "evolinkTest": {
+      "title": "Evolink API Test",
+      "description": "Test the Evolink API integration with our platform",
+      "instructions": "Click the button below to test the connection with Evolink's AI services.",
+      "runTest": "Run API Test"
     },
     "faq": {
       "title": "Frequently Asked Questions",

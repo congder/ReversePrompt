@@ -71,14 +71,19 @@ export class Storage {
 
     const res = await upload.done();
 
+    // 构建正确的 R2 公共 URL
+    // 如果配置了自定义域名，使用 STORAGE_DOMAIN
+    // 否则使用 R2 默认 endpoint 格式
+    const r2Url = process.env.STORAGE_DOMAIN
+      ? `${process.env.STORAGE_DOMAIN}/${res.Key}`
+      : `https://${process.env.STORAGE_ENDPOINT?.replace(/^https?:\/\//, '').replace(/\.r2\.cloudflarestorage\.com$/, '')}.r2.cloudflarestorage.com/${res.Bucket}/${res.Key}`;
+
     return {
-      location: res.Location,
+      location: r2Url,
       bucket: res.Bucket,
       key: res.Key,
       filename: res.Key?.split("/").pop(),
-      url: process.env.STORAGE_DOMAIN
-        ? `${process.env.STORAGE_DOMAIN}/${res.Key}`
-        : res.Location,
+      url: r2Url,
     };
   }
 

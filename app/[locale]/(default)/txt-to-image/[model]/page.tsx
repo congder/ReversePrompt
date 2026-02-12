@@ -16,18 +16,20 @@ import { authEventBus } from "@/lib/auth-event";
 import { ImageComparison } from "@/components/ui/image-comparison";
 import { useConsumptionItems } from "@/hooks/useConsumptionItems";
 import { mapImageModelToConsumptionType } from "@/lib/model-consumption-mapping";
+import { cosUploadService } from "@/lib/cos-upload";
 
 // 复用 digital-human 的 Google 登录处理组件
 function GoogleAuthHandler() {
   const t = useTranslations('ai_image');
-  const [searchParams] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return new URLSearchParams(window.location.search);
-    }
-    return new URLSearchParams();
-  });
+  const [searchParams, setSearchParams] = useState<URLSearchParams>(new URLSearchParams());
 
   useEffect(() => {
+    // 初始化searchParams（只在客户端执行）
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setSearchParams(params);
+    }
+
     // 清除所有 Google OAuth 和登录相关的标志
     sessionStorage.removeItem('google_oauth_in_progress');
     sessionStorage.removeItem('user_opened_sign_modal');
@@ -126,6 +128,10 @@ export default function TextToImagePage() {
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("text-to-image");
 
+  const fileInput = document.getElementById("file-upload");
+  const uploadStatus = document.getElementById("upload-status");
+
+  
   // 根据路由参数过滤模型（文生图）
   const filteredModels = models.filter(m => {
     // 首先检查是否支持文生图（如果字段存在）
@@ -484,6 +490,7 @@ export default function TextToImagePage() {
             console.log('[Evolink] 生成完成，图片URL:', taskData.results[0]);
             setGenerationProgress(100);
             setGeneratedImage(taskData.results[0]);
+               
             toast.success(t('generation_success'));
             return;
           }
@@ -590,9 +597,6 @@ export default function TextToImagePage() {
 
       const response = await fetch('/api/ai/image-to-image', {
         method: 'POST',
-        headers: {
-          'language': locale,  // 添加语言头
-        },
         body: formData,
       });
 
@@ -613,17 +617,54 @@ export default function TextToImagePage() {
         return;
       }
 
-      if (result.code === 1000 && result.data?.images && result.data.images.length > 0) {
-        const imageUrl = result.data.images[0];
-        setGeneratedI2IImage(imageUrl);
-        toast.success(t('generation_success'));
-      } else {
-        console.error('[ImageToImage] 生成失败:', result);
-        toast.error(result.message || t('generation_failed'));
+      if (result.code !== 1000) {
+        throw new Error(result.message || 'Generation failed');
       }
-    } catch (error) {
+
+      const taskId = result.data.id;
+      console.log('[ImageToImage] 任务ID:', taskId);
+
+      // 轮询任务状态
+      const maxAttempts = 120;
+      const pollInterval = 2000;
+
+      for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        await new Promise(resolve => setTimeout(resolve, pollInterval));
+
+        const statusResponse = await fetch(`/api/ai/evolink/task/${taskId}`);
+
+        const statusResult = await statusResponse.json();
+        console.log(`[ImageToImage] 轮询 ${attempt + 1}/${maxAttempts}, 状态:`, statusResult.data?.status, '进度:', statusResult.data?.progress);
+
+        if (statusResult.code !== 1000) {
+          throw new Error(statusResult.message || 'Task query failed');
+        }
+
+        const taskData = statusResult.data;
+
+        if (taskData.status === 'completed' && taskData.results && taskData.results.length > 0) {
+          const imageUrl = taskData.results[0];
+          setGeneratedI2IImage(imageUrl);
+          toast.success(t('generation_success'));
+          break;
+        }
+
+        if (taskData.status === 'failed') {
+          throw new Error('Generation failed');
+        }
+
+        // 更新进度
+        const progress = taskData.progress || 0;
+        console.log('[ImageToImage] 进度:', progress + '%');
+      }
+
+      // 如果超时
+      if (attempt >= maxAttempts) {
+        throw new Error('Generation timeout');
+      }
+    } catch (error: any) {
       console.error('[ImageToImage] 生成异常:', error);
-      toast.error(t('generation_error'));
+      toast.error(error.message || t('generation_error'));
     } finally {
       setIsGeneratingI2I(false);
     }

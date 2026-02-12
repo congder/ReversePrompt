@@ -164,6 +164,31 @@ export default async function LandingPage({
         </div>
       </section>
 
+      {/* Evolink Test Section */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            {t('evolinkTest.title')}
+          </h2>
+          <p className="text-xl text-gray-600">
+            {t('evolinkTest.description')}
+          </p>
+        </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white p-8 rounded-xl shadow-lg">
+            <p className="text-gray-600 mb-6 text-center">
+              {t('evolinkTest.instructions')}
+            </p>
+            <Link
+              href={`/${locale}/evolink-test`}
+              className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+            >
+              {t('evolinkTest.runTest')}
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <FAQSection
         title={t("faq.title")}
