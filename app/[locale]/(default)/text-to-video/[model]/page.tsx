@@ -393,23 +393,6 @@ export default function TextToVideoPage() {
                             </Select>
                           </div>
                         </div>
-
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {t('form.style')}
-                          </label>
-                          <Select value={style} onValueChange={setStyle}>
-                            <SelectTrigger>
-                              <SelectValue />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="realistic">写实风格</SelectItem>
-                              <SelectItem value="anime">动漫风格</SelectItem>
-                              <SelectItem value="watercolor">水彩风格</SelectItem>
-                              <SelectItem value="oil">油画风格</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
