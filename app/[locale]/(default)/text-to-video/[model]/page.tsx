@@ -281,7 +281,7 @@ export default function TextToVideoPage() {
     setPrompt('');
     setAspectRatio('auto');
     setQuality('720p');
-    setDuration('10s');
+    setDuration(10);
     setStyle('realistic');
     setUploadedVideos([]);
     setTaskId(null);
