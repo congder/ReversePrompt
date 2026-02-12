@@ -90,7 +90,7 @@ export default function TextToVideoPage() {
   const [prompt, setPrompt] = useState('');
   const [aspectRatio, setAspectRatio] = useState('16:9');
   const [quality, setQuality] = useState('720p');
-  const [duration, setDuration] = useState(4);
+  const [duration, setDuration] = useState('10s');
 
 
   // 初始化时过滤模型
@@ -171,7 +171,7 @@ export default function TextToVideoPage() {
         aspect_ratio: aspectRatio,
         quality: quality as '720p' | '1080p' | '4k',
         generation_type: uploadedVideos.length > 0 ? 'FIRST&LAST' : 'TEXT',
-        duration: duration,
+        duration: parseInt(duration),
         generate_audio: true
       };
 
@@ -281,7 +281,7 @@ export default function TextToVideoPage() {
     setPrompt('');
     setAspectRatio('auto');
     setQuality('720p');
-    setDuration(10);
+    setDuration('10s');
     setUploadedVideos([]);
     setTaskId(null);
     setTaskProgress(0);
