@@ -13,8 +13,6 @@ import { Wand2, Upload, Video, Download } from "lucide-react";
 import { toast } from "sonner";
 import { authEventBus } from "@/lib/auth-event";
 import { FileUpload } from "@/components/ui/file-upload";
-import { useConsumptionItems } from "@/hooks/useConsumptionItems";
-import { mapVideoModelToConsumptionType } from "@/lib/model-consumption-mapping";
 import type { VideoModel, VideoGenerationRequest, VideoGenerationResponse, VideoTaskStatus } from "@/types/video";
 import cosUploadService from "@/lib/cos-upload";
 
@@ -94,7 +92,6 @@ export default function TextToVideoPage() {
   const [quality, setQuality] = useState('720p');
   const [duration, setDuration] = useState(4);
 
-  const { addConsumptionItem } = useConsumptionItems();
 
   // 初始化时过滤模型
   useEffect(() => {
@@ -244,13 +241,6 @@ export default function TextToVideoPage() {
             setGeneratedVideos(task.results);
             setIsPolling(false);
             toast.success(t('generation.success'));
-
-            // 记录消费
-            addConsumptionItem({
-              type: mapVideoModelToConsumptionType(selectedModel?.model || ''),
-              count: 1,
-              cost: 0
-            });
 
             return;
           }
