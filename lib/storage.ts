@@ -12,6 +12,17 @@ export function newStorage(config?: StorageConfig) {
   return new Storage(config);
 }
 
+// 检查是否配置了 R2 存储
+export function isStorageConfigured(): boolean {
+  return !!(
+    process.env.STORAGE_ENDPOINT &&
+    process.env.STORAGE_ACCESS_KEY &&
+    process.env.STORAGE_SECRET_KEY &&
+    process.env.STORAGE_BUCKET &&
+    process.env.STORAGE_DOMAIN
+  );
+}
+
 export class Storage {
   private s3: S3Client;
 
@@ -71,19 +82,20 @@ export class Storage {
 
     const res = await upload.done();
 
-    // 构建正确的 R2 公共 URL
-    // 如果配置了自定义域名，使用 STORAGE_DOMAIN
-    // 否则使用 R2 默认 endpoint 格式
-    const r2Url = process.env.STORAGE_DOMAIN
-      ? `${process.env.STORAGE_DOMAIN}/${res.Key}`
-      : `https://${process.env.STORAGE_ENDPOINT?.replace(/^https?:\/\//, '').replace(/\.r2\.cloudflarestorage\.com$/, '')}.r2.cloudflarestorage.com/${res.Bucket}/${res.Key}`;
+    // 构建公共访问 URL
+    const domain = process.env.STORAGE_DOMAIN;
+    if (!domain) {
+      throw new Error("STORAGE_DOMAIN is not configured");
+    }
+
+    const publicUrl = `${domain.replace(/\/$/, '')}/${res.Key}`;
 
     return {
-      location: r2Url,
+      location: publicUrl,
       bucket: res.Bucket,
       key: res.Key,
       filename: res.Key?.split("/").pop(),
-      url: r2Url,
+      url: publicUrl,
     };
   }
 

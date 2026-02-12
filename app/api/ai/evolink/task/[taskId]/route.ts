@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { evolinkAxios } from '@/lib/axios-config';
 import { log, logError } from '@/lib/logger';
 import { auth } from '@/auth';
-import { newStorage } from '@/lib/storage';
+import { newStorage, isStorageConfigured } from '@/lib/storage';
 
 export async function GET(
   request: NextRequest,
@@ -34,13 +34,23 @@ export async function GET(
 
     // 如果任务已完成且有结果,上传到 R2
     if (taskData.status === 'completed' && taskData.results && taskData.results.length > 0) {
+      // 检查是否配置了 R2 存储
+      if (!isStorageConfigured()) {
+        log('[Evolink Task] R2 未完整配置，跳过上传，返回原始 URL');
+        return NextResponse.json({
+          code: 1000,
+          message: 'success',
+          data: taskData
+        });
+      }
+
       log('[Evolink Task] 任务已完成,开始上传结果到 R2');
 
       try {
         const storage = newStorage();
 
         const uploadedResults = await Promise.all(
-          taskData.results.map(async (resultUrl: string, index: number) => {
+          taskData.results.map(async (resultUrl: string) => {
             try {
               // 从 URL 提取文件扩展名
               const urlPath = new URL(resultUrl).pathname;

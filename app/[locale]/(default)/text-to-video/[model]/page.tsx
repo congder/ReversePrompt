@@ -282,7 +282,6 @@ export default function TextToVideoPage() {
     setAspectRatio('auto');
     setQuality('720p');
     setDuration(10);
-    setStyle('realistic');
     setUploadedVideos([]);
     setTaskId(null);
     setTaskProgress(0);
