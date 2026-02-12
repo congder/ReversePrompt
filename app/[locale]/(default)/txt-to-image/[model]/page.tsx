@@ -657,11 +657,6 @@ export default function TextToImagePage() {
         const progress = taskData.progress || 0;
         console.log('[ImageToImage] 进度:', progress + '%');
       }
-
-      // 如果超时
-      if (attempt >= maxAttempts) {
-        throw new Error('Generation timeout');
-      }
     } catch (error: any) {
       console.error('[ImageToImage] 生成异常:', error);
       toast.error(error.message || t('generation_error'));

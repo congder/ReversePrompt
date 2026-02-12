@@ -20,11 +20,11 @@ export async function GET() {
       },
       message: '调试信息 - 请检查API Key配置'
     });
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json({
       status: 'error',
       message: '获取调试信息失败',
-      error: error.message
+      error: error?.message || 'Unknown error'
     }, { status: 500 });
   }
 }

@@ -1,20 +1,16 @@
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { SupabaseClient } from '@supabase/supabase-js';
+// 此项目使用 NextAuth 进行身份验证，不再使用 Supabase Auth
+// Supabase 现在仅作为数据库使用
 
-// 创建客户端组件可用的Supabase客户端
-export const createSupabaseClient = (): SupabaseClient => {
-  return createClientComponentClient({
-    options: {
-      auth: {
-        persistSession: true, // 持久化登录会话
-      },
-    },
-  });
-};
-
-// 服务端组件专用客户端（可选）
-// import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-// import { cookies } from 'next/headers';
-// export const createSupabaseServerClient = () => {
-//   return createServerComponentClient({ cookies });
+// 如果需要直接操作 Supabase 数据库，可以使用以下方式：
+// import { createClient } from '@supabase/supabase-js';
+//
+// export const createSupabaseClient = () => {
+//   return createClient(
+//     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+//     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+//   );
 // };
+
+export const createSupabaseClient = () => {
+  throw new Error('Supabase client not configured. This project uses NextAuth for authentication.');
+};

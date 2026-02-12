@@ -427,7 +427,6 @@ export default function TextToVideoPage() {
                       type="image"
                       maxSize={10 * 1024 * 1024} // 10MB
                       multiple={true}
-                      maxFiles={2}
                     />
                     {uploadedVideos.length > 0 && (
                       <div className="mt-2 text-sm text-green-600">
@@ -471,23 +470,6 @@ export default function TextToVideoPage() {
                                 <SelectItem value="15s">15秒</SelectItem>
                                 <SelectItem value="20s">20秒</SelectItem>
                                 <SelectItem value="30s">30秒</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </div>
-
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                              {t('form.style')}
-                            </label>
-                            <Select value={style} onValueChange={setStyle}>
-                              <SelectTrigger>
-                                <SelectValue />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="realistic">写实风格</SelectItem>
-                                <SelectItem value="anime">动漫风格</SelectItem>
-                                <SelectItem value="watercolor">水彩风格</SelectItem>
-                                <SelectItem value="oil">油画风格</SelectItem>
                               </SelectContent>
                             </Select>
                           </div>

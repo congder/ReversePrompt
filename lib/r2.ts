@@ -58,6 +58,6 @@ export async function getPresignedR2Url(
     Key: fileKey,
   });
 
-  const signedUrl = await getSignedUrl(r2Client, command, { expiresIn });
+  const signedUrl = await getSignedUrl(r2Client as any, command as any, { expiresIn } as any);
   return signedUrl;
 }
